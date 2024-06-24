@@ -1,4 +1,52 @@
 {
+    "Acquiring": [
+        {
+            "code": "sber-aq",
+            "name": "sber-acquiring"
+        },
+        {
+            "code": "alfa-aq",
+            "name": "alfa-acquiring"
+        }
+    ],
+    "Avatar": [
+        {
+            "path": "/public/avatars/1.jpg"
+        },
+        {
+            "path": "/public/avatars/2.jpg"
+        },
+        {
+            "path": "/public/avatars/3.jpg"
+        },
+        {
+            "path": "/public/avatars/4.jpg"
+        },
+        {
+            "path": "/public/avatars/5.jpg"
+        },
+        {
+            "path": "/public/avatars/6.jpg"
+        },
+        {
+            "path": "/public/avatars/7.jpg"
+        },
+        {
+            "path": "/public/avatars/8.jpg"
+        },
+        {
+            "path": "/public/avatars/9.jpg"
+        },
+        {
+            "path": "/public/avatars/10.jpg"
+        },
+        {
+            "path": "/public/avatars/11.jpg"
+        },
+        {
+            "path": "/public/avatars/Default.jpg"
+        }
+    ],
     "User": [
         {
             "nickname": "admin",
@@ -32,6 +80,62 @@
             "Role": {
                 "code": "user"
             }
+        },
+        {
+            "nickname": "bannedUser",
+            "email": "bannedUser@mail.ru",
+            "password": "BannedUser!",
+            "Avatar": {
+                "path": "/public/avatars/10.jpg"
+            },
+            "Role": {
+                "code": "user"
+            }
+        }
+    ],
+    "Ban": [
+        {
+            "date_start": "05-05-2024",
+            "date_end": "10-10-2024",
+            "reason_description": "Использование стороннего ПО",
+            "user_id": 4
+        }
+    ],
+    "Auth": [
+        {
+            "token": "IG5icnRlbWJ2bS1ibHQ=",
+            "user_id": 1
+        },
+        {
+            "token": "bWtucnRqZ25yZXZuIHI=",
+            "user_id": 2
+        },
+        {
+            "token": "LG5iIGtrdHJl2a3RybA=",
+            "user_id": 3
+        }
+    ],
+    "Comic_type": [
+        {
+            "name": "Манга"
+        },
+        {
+            "name": "Манхва"
+        },
+        {
+            "name": "Маньхуа"
+        },
+        {
+            "name": "Западный комикс"
+        },
+        {
+            "name": "Рукомикс"
+        },
+        {
+            "name": "Индонезийский комикс"
+        },
+        {
+            "name": "Другое"
         }
     ],
     "Comic_genre": [
@@ -104,12 +208,24 @@
                 }
             },
             "Genres": [
-                {"name": "Ужасы"},
-                {"name": "Драма"},
-                {"name": "Постапокалиптика"},
-                {"name": "Психология"},
-                {"name": "Триллер"},
-                {"name": "Фантастика"}
+                {
+                    "name": "Ужасы"
+                },
+                {
+                    "name": "Драма"
+                },
+                {
+                    "name": "Постапокалиптика"
+                },
+                {
+                    "name": "Психология"
+                },
+                {
+                    "name": "Триллер"
+                },
+                {
+                    "name": "Фантастика"
+                }
             ]
         },
         {
@@ -129,11 +245,21 @@
                 }
             },
             "Genres": [
-                {"name": "Научная фантастика"},
-                {"name": "Триллер"},
-                {"name": "Драма"},
-                {"name": "Киберпанк"},
-                {"name": "Экшен"}
+                {
+                    "name": "Научная фантастика"
+                },
+                {
+                    "name": "Триллер"
+                },
+                {
+                    "name": "Драма"
+                },
+                {
+                    "name": "Киберпанк"
+                },
+                {
+                    "name": "Экшен"
+                }
             ]
         },
         {
@@ -153,12 +279,24 @@
                 }
             },
             "Genres": [
-                {"name": "Фэнтези"},
-                {"name": "Боевик"},
-                {"name": "Приключения"},
-                {"name": "Драма"},
-                {"name": "Мистика"},
-                {"name": "Сверхъестественное"}
+                {
+                    "name": "Фэнтези"
+                },
+                {
+                    "name": "Боевик"
+                },
+                {
+                    "name": "Приключения"
+                },
+                {
+                    "name": "Драма"
+                },
+                {
+                    "name": "Мистика"
+                },
+                {
+                    "name": "Сверхъестественное"
+                }
             ]
         },
         {
@@ -178,12 +316,24 @@
                 }
             },
             "Genres": [
-                {"name": "Фэнтези"},
-                {"name": "Боевик"},
-                {"name": "Драма"},
-                {"name": "Приключения"},
-                {"name": "Мистика"},
-                {"name": "Сверхъестественное"}
+                {
+                    "name": "Фэнтези"
+                },
+                {
+                    "name": "Боевик"
+                },
+                {
+                    "name": "Драма"
+                },
+                {
+                    "name": "Приключения"
+                },
+                {
+                    "name": "Мистика"
+                },
+                {
+                    "name": "Сверхъестественное"
+                }
             ]
         },
         {
@@ -203,10 +353,18 @@
                 }
             },
             "Genres": [
-                {"name": "Научная фантастика"},
-                {"name": "Драма"},
-                {"name": "Приключения"},
-                {"name": "Фэнтези"}
+                {
+                    "name": "Научная фантастика"
+                },
+                {
+                    "name": "Драма"
+                },
+                {
+                    "name": "Приключения"
+                },
+                {
+                    "name": "Фэнтези"
+                }
             ]
         }
     ],
@@ -481,14 +639,720 @@
     "Comic_reading_status": [
         {
             "Users": [
-                {"id": 1},
-                {"id": 2},
-                {"id": 3}
+                {
+                    "id": 1
+                },
+                {
+                    "id": 2
+                },
+                {
+                    "id": 3
+                }
             ],
             "comic_id": 1,
             "Reading_status": {
                 "name": "Читаю"
             }
+        }
+    ],
+    "Comic_review": [
+        {
+            "user_id": 1,
+            "comic_id": 1,
+            "content": "Интересный комикс, а самое главное - необычные развязки. Однозначно рекомендуется к прочтению",
+            "last_update_date": "06-20-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 2,
+            "comic_id": 1,
+            "content": "Сюжет необычный, но сами персонажи не раскрыты. На один раз прочитать сойдёт",
+            "last_update_date": "06-20-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 3,
+            "comic_id": 1,
+            "content": "Отличная атмосфера и увлекательный сюжет. Персонажи живые, каждый со своей историей. Рекомендую всем!",
+            "last_update_date": "06-20-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 4,
+            "comic_id": 1,
+            "content": "Необычные идеи и интересные повороты событий, но слишком много диалогов. Визуальная составляющая тоже важна",
+            "last_update_date": "06-20-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 1,
+            "comic_id": 2,
+            "content": "Фантастический мир и глубокие персонажи. Читал на одном дыхании!",
+            "last_update_date": "06-20-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 2,
+            "comic_id": 2,
+            "content": "Сюжет сложный, персонажи интересные, но концовка разочаровала. Средне",
+            "last_update_date": "06-20-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 3,
+            "comic_id": 2,
+            "content": "Удивительная смесь мистики и приключений. Персонажи проработаны до мелочей, читать стоит!",
+            "last_update_date": "06-20-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 4,
+            "comic_id": 2,
+            "content": "Интересный мир, но немного запутанная сюжетная линия. Для фанатов жанра будет интересно",
+            "last_update_date": "06-20-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 1,
+            "comic_id": 3,
+            "content": "Захватывающий комикс с неожиданными поворотами сюжета. Обязателен к прочтению!",
+            "last_update_date": "06-20-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 2,
+            "comic_id": 3,
+            "content": "Сюжет интересный, но персонажи плоские. Подойдет для быстрого чтения",
+            "last_update_date": "06-20-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 3,
+            "comic_id": 3,
+            "content": "Уникальная атмосфера и захватывающий сюжет. Персонажи с ярким характером. Однозначно рекомендую!",
+            "last_update_date": "06-20-2024",
+            "is_moderated": true
+        }
+    ],
+    "Comic_rating": [
+        {
+            "user_id": 1,
+            "comic_id": 1,
+            "value": 1
+        },
+        {
+            "user_id": 2,
+            "comic_id": 1,
+            "value": 8
+        },
+        {
+            "user_id": 3,
+            "comic_id": 1,
+            "value": 5
+        },
+        {
+            "user_id": 4,
+            "comic_id": 1,
+            "value": 3
+        },
+        {
+            "user_id": 1,
+            "comic_id": 2,
+            "value": 9
+        },
+        {
+            "user_id": 2,
+            "comic_id": 2,
+            "value": 6
+        },
+        {
+            "user_id": 3,
+            "comic_id": 2,
+            "value": 7
+        },
+        {
+            "user_id": 4,
+            "comic_id": 2,
+            "value": 4
+        },
+        {
+            "user_id": 1,
+            "comic_id": 3,
+            "value": 10
+        },
+        {
+            "user_id": 2,
+            "comic_id": 3,
+            "value": 8
+        },
+        {
+            "user_id": 3,
+            "comic_id": 3,
+            "value": 9
+        }
+    ],
+    "Chapter": [
+        {
+            "comic_id": 1,
+            "name": "Глава 1. Начало",
+            "chapter_number": 1,
+            "volume_number": 1,
+            "date_added": "2024-06-01"
+        },
+        {
+            "comic_id": 1,
+            "name": "Глава 2. Первый подвиг",
+            "chapter_number": 2,
+            "volume_number": 1,
+            "date_added": "2024-06-05"
+        },
+        {
+            "comic_id": 1,
+            "name": "Глава 3. Встреча с противником",
+            "chapter_number": 3,
+            "volume_number": 1,
+            "date_added": "2024-06-10"
+        },
+        {
+            "comic_id": 1,
+            "name": "Глава 4. Испытание силы",
+            "chapter_number": 4,
+            "volume_number": 1,
+            "date_added": "2024-06-15"
+        },
+        {
+            "comic_id": 1,
+            "name": "Глава 5. Загадочный союзник",
+            "chapter_number": 5,
+            "volume_number": 1,
+            "date_added": "2024-06-20"
+        },
+        {
+            "comic_id": 1,
+            "name": "Глава 6. Подземные тропы",
+            "chapter_number": 6,
+            "volume_number": 1,
+            "date_added": "2024-06-25"
+        },
+        {
+            "comic_id": 1,
+            "name": "Глава 7. Решающая схватка",
+            "chapter_number": 7,
+            "volume_number": 1,
+            "date_added": "2024-07-01"
+        },
+        {
+            "comic_id": 1,
+            "name": "Глава 8. Возвращение героя",
+            "chapter_number": 8,
+            "volume_number": 1,
+            "date_added": "2024-07-05"
+        },
+        {
+            "comic_id": 1,
+            "name": "Глава 9. Подарок судьбы",
+            "chapter_number": 9,
+            "volume_number": 1,
+            "date_added": "2024-07-10"
+        },
+        {
+            "comic_id": 1,
+            "name": "Глава 10. Новое начало",
+            "chapter_number": 10,
+            "volume_number": 1,
+            "date_added": "2024-07-15"
+        },
+        {
+            "comic_id": 2,
+            "name": "Глава 1. Тайная миссия",
+            "chapter_number": 1,
+            "volume_number": 1,
+            "date_added": "2024-06-01"
+        },
+        {
+            "comic_id": 2,
+            "name": "Глава 2. Спасение союзников",
+            "chapter_number": 2,
+            "volume_number": 1,
+            "date_added": "2024-06-05"
+        },
+        {
+            "comic_id": 2,
+            "name": "Глава 3. Погоня за артефактом",
+            "chapter_number": 3,
+            "volume_number": 1,
+            "date_added": "2024-06-10"
+        },
+        {
+            "comic_id": 2,
+            "name": "Глава 4. Ловушка в городе",
+            "chapter_number": 4,
+            "volume_number": 1,
+            "date_added": "2024-06-15"
+        },
+        {
+            "comic_id": 2,
+            "name": "Глава 5. Сражение в долине",
+            "chapter_number": 5,
+            "volume_number": 1,
+            "date_added": "2024-06-20"
+        },
+        {
+            "comic_id": 2,
+            "name": "Глава 6. Загадочная пещера",
+            "chapter_number": 6,
+            "volume_number": 1,
+            "date_added": "2024-06-25"
+        },
+        {
+            "comic_id": 2,
+            "name": "Глава 7. Встреча с предателем",
+            "chapter_number": 7,
+            "volume_number": 1,
+            "date_added": "2024-07-01"
+        },
+        {
+            "comic_id": 2,
+            "name": "Глава 8. Решающий шаг",
+            "chapter_number": 8,
+            "volume_number": 1,
+            "date_added": "2024-07-05"
+        },
+        {
+            "comic_id": 2,
+            "name": "Глава 9. Неожиданное союзничество",
+            "chapter_number": 9,
+            "volume_number": 1,
+            "date_added": "2024-07-10"
+        },
+        {
+            "comic_id": 2,
+            "name": "Глава 10. Победа и предательство",
+            "chapter_number": 10,
+            "volume_number": 1,
+            "date_added": "2024-07-15"
+        },
+        {
+            "comic_id": 3,
+            "name": "Глава 1. Загадка временного портала",
+            "chapter_number": 1,
+            "volume_number": 1,
+            "date_added": "2024-06-01"
+        },
+        {
+            "comic_id": 3,
+            "name": "Глава 2. Путешествие в прошлое",
+            "chapter_number": 2,
+            "volume_number": 1,
+            "date_added": "2024-06-05"
+        },
+        {
+            "comic_id": 3,
+            "name": "Глава 3. Встреча с историческим героем",
+            "chapter_number": 3,
+            "volume_number": 1,
+            "date_added": "2024-06-10"
+        },
+        {
+            "comic_id": 3,
+            "name": "Глава 4. Злодей из будущего",
+            "chapter_number": 4,
+            "volume_number": 1,
+            "date_added": "2024-06-15"
+        },
+        {
+            "comic_id": 3,
+            "name": "Глава 5. Разгадка временной паутины",
+            "chapter_number": 5,
+            "volume_number": 1,
+            "date_added": "2024-06-20"
+        },
+        {
+            "comic_id": 3,
+            "name": "Глава 6. Схватка на рубеже эпох",
+            "chapter_number": 6,
+            "volume_number": 1,
+            "date_added": "2024-06-25"
+        },
+        {
+            "comic_id": 3,
+            "name": "Глава 7. Поворот временных судеб",
+            "chapter_number": 7,
+            "volume_number": 1,
+            "date_added": "2024-07-01"
+        },
+        {
+            "comic_id": 3,
+            "name": "Глава 8. Возвращение в настоящее",
+            "chapter_number": 8,
+            "volume_number": 1,
+            "date_added": "2024-07-05"
+        },
+        {
+            "comic_id": 3,
+            "name": "Глава 9. Путешествие в будущее",
+            "chapter_number": 9,
+            "volume_number": 1,
+            "date_added": "2024-07-10"
+        },
+        {
+            "comic_id": 3,
+            "name": "Глава 10. Великий временной круг",
+            "chapter_number": 10,
+            "volume_number": 1,
+            "date_added": "2024-07-15"
+        }
+    ],
+    "Chapter_review": [
+        {
+            "user_id": 3,
+            "chapter_id": 3,
+            "content": "Хахаха, Иона так ему ответила, что я чуть не проавлилась 🤣",
+            "last_update_date": "06-20-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 1,
+            "chapter_id": 5,
+            "content": "Ого, какой поворот сюжета! Никогда не думал, что она так поступит.",
+            "last_update_date": "06-24-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 2,
+            "chapter_id": 10,
+            "content": "Этот момент заставил меня задуматься над собственными поступками. Очень сильно.",
+            "last_update_date": "06-24-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 3,
+            "chapter_id": 15,
+            "content": "Эта глава меня просто потрясла. Я не мог перестать читать до самого конца!",
+            "last_update_date": "06-23-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 4,
+            "chapter_id": 7,
+            "content": "Вот это я называю персонаж с характером! Его поступки всегда удивляют и вдохновляют.",
+            "last_update_date": "06-22-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 2,
+            "chapter_id": 3,
+            "content": "С такими диалогами книга просто летит на одном дыхании. Невероятная игра слов!",
+            "last_update_date": "06-21-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 1,
+            "chapter_id": 12,
+            "content": "Этот момент заслуживает овации. Автору удалось создать настоящую эмоциональную бурю.",
+            "last_update_date": "06-20-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 3,
+            "chapter_id": 18,
+            "content": "Не могу поверить, что такой поворот случился! Жду продолжения с нетерпением.",
+            "last_update_date": "06-19-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 4,
+            "chapter_id": 9,
+            "content": "Какие персонажи! Каждый из них - отдельная история, каждый шаг - шаг к новым открытиям.",
+            "last_update_date": "06-18-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 2,
+            "chapter_id": 20,
+            "content": "Эта глава заставила меня задуматься о смысле жизни. Очень глубокая и философская.",
+            "last_update_date": "06-17-2024",
+            "is_moderated": true
+        },
+        {
+            "user_id": 1,
+            "chapter_id": 6,
+            "content": "Концовка этой главы - полное откровение! Так много эмоций и неожиданностей.",
+            "last_update_date": "06-16-2024",
+            "is_moderated": true
+        }
+    ],
+    "Chapter_review_like": [
+        {
+            "user_id": 1,
+            "chapter_review_id": 1
+        },
+        {
+            "user_id": 2,
+            "chapter_review_id": 2
+        },
+        {
+            "user_id": 3,
+            "chapter_review_id": 3
+        },
+        {
+            "user_id": 4,
+            "chapter_review_id": 4
+        },
+        {
+            "user_id": 1,
+            "chapter_review_id": 5
+        },
+        {
+            "user_id": 2,
+            "chapter_review_id": 6
+        },
+        {
+            "user_id": 3,
+            "chapter_review_id": 7
+        },
+        {
+            "user_id": 4,
+            "chapter_review_id": 8
+        },
+        {
+            "user_id": 1,
+            "chapter_review_id": 9
+        },
+        {
+            "user_id": 2,
+            "chapter_review_id": 10
+        },
+        {
+            "user_id": 3,
+            "chapter_review_id": 11
+        }
+    ],
+    "Frame": [
+        {
+            "chapter_id": 1,
+            "number": 1,
+            "path": "/public/chapter/1/1.jpg"
+        },
+        {
+            "chapter_id": 1,
+            "number": 2,
+            "path": "/public/chapter/1/2.jpg"
+        },
+        {
+            "chapter_id": 2,
+            "number": 1,
+            "path": "/public/chapter/2/1.jpg"
+        },
+        {
+            "chapter_id": 2,
+            "number": 2,
+            "path": "/public/chapter/2/2.jpg"
+        },
+        {
+            "chapter_id": 3,
+            "number": 1,
+            "path": "/public/chapter/3/1.jpg"
+        },
+        {
+            "chapter_id": 3,
+            "number": 2,
+            "path": "/public/chapter/3/2.jpg"
+        },
+        {
+            "chapter_id": 3,
+            "number": 3,
+            "path": "/public/chapter/3/3.jpg"
+        },
+        {
+            "chapter_id": 4,
+            "number": 1,
+            "path": "/public/chapter/4/1.jpg"
+        },
+        {
+            "chapter_id": 5,
+            "number": 1,
+            "path": "/public/chapter/5/1.jpg"
+        },
+        {
+            "chapter_id": 5,
+            "number": 2,
+            "path": "/public/chapter/5/2.jpg"
+        },
+        {
+            "chapter_id": 5,
+            "number": 3,
+            "path": "/public/chapter/5/3.jpg"
+        },
+        {
+            "chapter_id": 6,
+            "number": 1,
+            "path": "/public/chapter/6/1.jpg"
+        },
+        {
+            "chapter_id": 6,
+            "number": 2,
+            "path": "/public/chapter/6/2.jpg"
+        },
+        {
+            "chapter_id": 7,
+            "number": 1,
+            "path": "/public/chapter/7/1.jpg"
+        },
+        {
+            "chapter_id": 7,
+            "number": 2,
+            "path": "/public/chapter/7/2.jpg"
+        },
+        {
+            "chapter_id": 8,
+            "number": 1,
+            "path": "/public/chapter/8/1.jpg"
+        },
+        {
+            "chapter_id": 9,
+            "number": 1,
+            "path": "/public/chapter/9/1.jpg"
+        },
+        {
+            "chapter_id": 9,
+            "number": 2,
+            "path": "/public/chapter/9/2.jpg"
+        },
+        {
+            "chapter_id": 9,
+            "number": 3,
+            "path": "/public/chapter/9/3.jpg"
+        },
+        {
+            "chapter_id": 10,
+            "number": 1,
+            "path": "/public/chapter/10/1.jpg"
+        }
+    ],
+    "Like_chapter": [
+        {
+            "user_id": 1,
+            "chapter_id": 1
+        },
+        {
+            "user_id": 2,
+            "chapter_id": 2
+        },
+        {
+            "user_id": 3,
+            "chapter_id": 3
+        },
+        {
+            "user_id": 4,
+            "chapter_id": 4
+        },
+        {
+            "user_id": 1,
+            "chapter_id": 5
+        },
+        {
+            "user_id": 2,
+            "chapter_id": 6
+        },
+        {
+            "user_id": 3,
+            "chapter_id": 7
+        },
+        {
+            "user_id": 4,
+            "chapter_id": 8
+        },
+        {
+            "user_id": 1,
+            "chapter_id": 9
+        },
+        {
+            "user_id": 2,
+            "chapter_id": 10
+        },
+        {
+            "user_id": 3,
+            "chapter_id": 11
+        }
+    ],
+    "Subscription": [
+        {
+            "name": "Месячная подписка",
+            "description": "Доступ к манге и манхве на 30 дней",
+            "is_available": true
+        },
+        {
+            "name": "Тримесячная подписка",
+            "description": "Доступ к манге и манхве на 90 дней с дополнительными скидками",
+            "is_available": true
+        },
+        {
+            "name": "Полугодовая подписка",
+            "description": "Доступ к манге и манхве на 180 дней, включая доступ ко всем новинкам",
+            "is_available": true
+        },
+        {
+            "name": "Годовая подписка",
+            "description": "Полный доступ к манге и манхве на 365 дней, включая эксклюзивные выпуски и специальные предложения",
+            "is_available": true
+        },
+        {
+            "name": "Недельная пробная подписка",
+            "description": "Подписка на мангу и манхву на 7 дней для ознакомления",
+            "is_available": true
+        }
+    ],
+    "Subscription_price": [
+        {
+            "price": 299.99,
+            "discount_percent": 0,
+            "days_count": 30,
+            "subscription_id": 1
+        },
+        {
+            "price": 799.99,
+            "discount_percent": 5,
+            "days_count": 90,
+            "subscription_id": 2
+        },
+        {
+            "price": 1499.99,
+            "discount_percent": 10,
+            "days_count": 180,
+            "subscription_id": 3
+        },
+        {
+            "price": 2499.99,
+            "discount_percent": 15,
+            "days_count": 365,
+            "subscription_id": 4
+        },
+        {
+            "price": 499.99,
+            "discount_percent": 0,
+            "days_count": 7,
+            "subscription_id": 5
+        }
+    ],
+    "User_subscription": [
+        {
+            "user_id": 1,
+            "acquiring_id": 1,
+            "subscription_price_id": 1,
+            "date_payment": "05-05-2024",
+            "date_end": "05-06-2024",
+            "pay_amount": 399.99,
+            "id_payment": "aGRmc2hnc2Rmamhmc2RoZGZo"
+        },
+        {
+            "user_id": 2,
+            "acquiring_id": 2,
+            "subscription_price_id": 1,
+            "date_payment": "05-04-2024",
+            "date_end": "05-05-2024",
+            "pay_amount": 399.99,
+            "id_payment": "aGdmamFkZ3Zhc2RnZmdqZ2ZkaGRmZw"
         }
     ]
 }

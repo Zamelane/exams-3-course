@@ -18,10 +18,10 @@ return new class extends Migration
             $table->foreignId('subscription_price_id')->constrained()->cascadeOnUpdate();
             $table->dateTime('date_payment');
             $table->dateTime('date_end');
-            $table->dateTime('date_cancel');
+            $table->dateTime('date_cancel')->nullable()->default(null);
             $table->decimal('pay_amount', 16, 2);
-            $table->decimal('refund_amount', 16, 2);
-            $table->string('id_payment');
+            $table->decimal('refund_amount', 16, 2)->nullable()->default(null);
+            $table->string('id_payment')->nullable()->default(null);
         });
     }
 

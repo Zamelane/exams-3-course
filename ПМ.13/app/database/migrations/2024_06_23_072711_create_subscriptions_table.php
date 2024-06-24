@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->decimal     ('price', 16, 2);
-            $table->decimal     ('discount_percent', 2, 0);
-            $table->tinyInteger ('days_count');
-            $table->integer     ('subscription');
+            $table->boolean('is_available');
+            $table->string('name', 65);
+            $table->string('description');
         });
     }
 

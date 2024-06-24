@@ -2,23 +2,39 @@
 
 namespace Database\Seeders;
 
+use App\Models\Acquiring;
+use App\Models\Auth;
 use App\Models\Avatar;
+use App\Models\Ban;
+use App\Models\Chapter;
+use App\Models\Chapter_review;
+use App\Models\Chapter_review_like;
 use App\Models\Comic;
 use App\Models\Comic_genre;
 use App\Models\Comic_name;
+use App\Models\Comic_rating;
 use App\Models\Comic_reading_status;
+use App\Models\Comic_review;
 use App\Models\Comic_type;
+use App\Models\Frame;
 use App\Models\Genre;
+use App\Models\Like_chapter;
 use App\Models\Reading_status;
 use App\Models\Release_status;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Subscription;
+use App\Models\Subscription_price;
 use App\Models\Translate_status;
+use App\Models\User_subscription;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     protected $classes = [
+        "Acquiring"            => Acquiring::class,
+        "Auth"                 => Auth::class,
+        "Ban"                  => Ban::class,
         "User"                 => User::class,
         "Role"                 => Role::class,
         "Avatar"               => Avatar::class,
@@ -26,10 +42,20 @@ class DatabaseSeeder extends Seeder
         "Genre"                => Genre::class,
         "Comic_genre"          => Comic_genre::class,
         "Comic_type"           => Comic_type::class,
+        "Comic_rating"         => Comic_rating::class,
+        "Chapter"              => Chapter::class,
+        "Chapter_review"       => Chapter_review::class,
+        "Chapter_review_like"  => Chapter_review_like::class,
+        "Frame"                => Frame::class,
         "Release_status"       => Release_status::class,
+        "Subscription"         => Subscription::class,
+        "Subscription_price"   => Subscription_price::class,
+        "User_subscription"    => User_subscription::class,
         "Translate_status"     => Translate_status::class,
         "Comic_name"           => Comic_name::class,
         "Comic_reading_status" => Comic_reading_status::class,
+        "Comic_review"         => Comic_review::class,
+        "Like_chapter"         => Like_chapter::class,
         "Reading_status"       => Reading_status::class
     ];
     public function run(): void

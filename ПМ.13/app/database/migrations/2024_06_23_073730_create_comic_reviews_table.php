@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate();
             $table->foreignId('comic_id')->constrained()->cascadeOnUpdate();
             $table->string('content');
-            $table->dateTime('lat_update_date');
+            $table->dateTime('last_update_date');
             $table->boolean('is_moderated')->nullable()->default(null);
         });
     }

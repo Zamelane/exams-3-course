@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('subscription_prices', function (Blueprint $table) {
-            $table->bigInteger('id')->primary();
+            $table->bigIncrements('id')->primary();
             $table->decimal('price', 16, 2);
             $table->decimal('discount_percent', 2, 0);
             $table->tinyInteger('days_count');
