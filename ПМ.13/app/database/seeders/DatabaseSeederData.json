@@ -1,0 +1,494 @@
+{
+    "User": [
+        {
+            "nickname": "admin",
+            "email": "admin@mail.ru",
+            "password": "Admin!",
+            "Avatar": {
+                "path": "/public/avatars/1.jpg"
+            },
+            "Role": {
+                "code": "admin"
+            }
+        },
+        {
+            "nickname": "chebyrek",
+            "email": "chebyrek@mail.ru",
+            "password": "Chebyrek!",
+            "Avatar": {
+                "path": "/public/avatars/2.jpg"
+            },
+            "Role": {
+                "code": "user"
+            }
+        },
+        {
+            "nickname": "odyvan",
+            "email": "odyvan@mail.ru",
+            "password": "Odyvan!",
+            "Avatar": {
+                "path": "/public/avatars/3.jpg"
+            },
+            "Role": {
+                "code": "user"
+            }
+        }
+    ],
+    "Comic_genre": [
+        {
+            "Comic": {
+                "description": "Много ли нужно для счастья хикикомори? Просто сиди в своих четырех стенах, отгоняй всех и погружайся в свой компьютер. Но что, если внезапно родители с сестрой умирают? Ну и пусть, они оставили \"копейки\". Пришлось переехать в дешевую общагу, питаться фастфудом, и даже назначить день Х, чтобы покинуть этот мир. Однако наш герой не подозревал, что умереть человеческими методами ему не суждено. Ведь, как говорится, \"ночь темна и полна ужасов\", а днем — тем более.",
+                "release_year": 2018,
+                "age_limit": "16+",
+                "poster_path": "https://remanga.org/media/titles/sweet_home_hwang_youngchan/8526d40b663441e5189f6263cefca146.jpg",
+                "Comic_type": {
+                    "name": "Манхва"
+                },
+                "Release_status": {
+                    "name": "Закончен"
+                },
+                "Translate_status": {
+                    "name": "Закончен"
+                }
+            },
+            "Genres": [
+                {
+                    "name": "Экшен"
+                },
+                {
+                    "name": "Драма"
+                },
+                {
+                    "name": "Постапокалиптика"
+                },
+                {
+                    "name": "Психология"
+                },
+                {
+                    "name": "Романтика"
+                },
+                {
+                    "name": "Сверхестественное"
+                },
+                {
+                    "name": "Сэйнэн"
+                },
+                {
+                    "name": "Триллер"
+                },
+                {
+                    "name": "Ужасы"
+                },
+                {
+                    "name": "Фантастика"
+                },
+                {
+                    "name": "Криминал"
+                }
+            ]
+        },
+        {
+            "Comic": {
+                "description": "После того, как таинственный вирус начал превращать людей в живых мертвецов, мир погрузился в хаос. Группа выживших оказалась заблокированной в темном подвале высотного здания. Они вынуждены объединить усилия, чтобы найти выход и выжить в этом аду. Но чем дольше они находятся в закрытом пространстве, тем сильнее начинают проявляться их внутренние конфликты. Они должны принять сложные решения, чтобы сохранить свою человечность и обрести новую надежду в мире, погруженном в ужас и беспомощность.",
+                "release_year": 2022,
+                "age_limit": "18+",
+                "poster_path": "https://example.com/media/titles/unknown_building/poster.jpg",
+                "Comic_type": {
+                    "name": "Манга"
+                },
+                "Release_status": {
+                    "name": "Продолжается"
+                },
+                "Translate_status": {
+                    "name": "Ожидает перевода"
+                }
+            },
+            "Genres": [
+                {"name": "Ужасы"},
+                {"name": "Драма"},
+                {"name": "Постапокалиптика"},
+                {"name": "Психология"},
+                {"name": "Триллер"},
+                {"name": "Фантастика"}
+            ]
+        },
+        {
+            "Comic": {
+                "description": "В современном мире, где искусственный интеллект уже вовсю интегрирован в повседневную жизнь, молодой программист сталкивается с загадочным вирусом, который начинает заражать целые компьютерные системы, превращая их в орудия хаоса. В попытках разгадать загадку заражения, он вынужден исследовать самые глубокие уровни виртуальной реальности, где каждый шаг открывает новые тайны и угрозы. Его борьба с вирусом ставит под угрозу не только его собственную жизнь, но и будущее всего человечества.",
+                "release_year": 2023,
+                "age_limit": "16+",
+                "poster_path": "https://example.com/media/titles/virtual_crisis/poster.jpg",
+                "Comic_type": {
+                    "name": "Манхва"
+                },
+                "Release_status": {
+                    "name": "Продолжается"
+                },
+                "Translate_status": {
+                    "name": "Ожидает перевода"
+                }
+            },
+            "Genres": [
+                {"name": "Научная фантастика"},
+                {"name": "Триллер"},
+                {"name": "Драма"},
+                {"name": "Киберпанк"},
+                {"name": "Экшен"}
+            ]
+        },
+        {
+            "Comic": {
+                "description": "В мире, где люди и монстры соседствуют, мало кто знает о темных силах, скрывающихся под поверхностью. Молодой охотник на монстров, чья семья погибла от нападения неизвестного зверя, отправляется в опасное путешествие, чтобы разгадать тайну прошлого и защитить мир от новой угрозы. Его путешествие наполнено сражениями, загадками и встречами с загадочными существами, которые меняют его представление о добре и зле.",
+                "release_year": 2023,
+                "age_limit": "16+",
+                "poster_path": "https://example.com/media/titles/monster_hunter/poster.jpg",
+                "Comic_type": {
+                    "name": "Манга"
+                },
+                "Release_status": {
+                    "name": "Продолжается"
+                },
+                "Translate_status": {
+                    "name": "Ожидает перевода"
+                }
+            },
+            "Genres": [
+                {"name": "Фэнтези"},
+                {"name": "Боевик"},
+                {"name": "Приключения"},
+                {"name": "Драма"},
+                {"name": "Мистика"},
+                {"name": "Сверхъестественное"}
+            ]
+        },
+        {
+            "Comic": {
+                "description": "В мире, раздираемом войной между ангелами и демонами, группа обычных людей оказывается втянутой в борьбу за выживание. Они обладают уникальными способностями, способными изменить ход событий. Им предстоит раскрыть свои силы, принять решение — спасти мир или погибнуть в его пучинах. Их действия определят будущее всего человечества.",
+                "release_year": 2022,
+                "age_limit": "16+",
+                "poster_path": "https://example.com/media/titles/angel_demon_war/poster.jpg",
+                "Comic_type": {
+                    "name": "Манга"
+                },
+                "Release_status": {
+                    "name": "Продолжается"
+                },
+                "Translate_status": {
+                    "name": "Ожидает перевода"
+                }
+            },
+            "Genres": [
+                {"name": "Фэнтези"},
+                {"name": "Боевик"},
+                {"name": "Драма"},
+                {"name": "Приключения"},
+                {"name": "Мистика"},
+                {"name": "Сверхъестественное"}
+            ]
+        },
+        {
+            "Comic": {
+                "description": "В далеком будущем, населенном технологиями и роботами, молодой инженер ведет исследования в области искусственного интеллекта. Он создает уникального робота, который обладает человекоподобными чувствами и эмоциями. Вместе они исследуют мир, встречаются с различными опасностями и решают глобальные проблемы, стоящие перед человечеством.",
+                "release_year": 2023,
+                "age_limit": "12+",
+                "poster_path": "https://example.com/media/titles/future_tech_robot/poster.jpg",
+                "Comic_type": {
+                    "name": "Манга"
+                },
+                "Release_status": {
+                    "name": "Продолжается"
+                },
+                "Translate_status": {
+                    "name": "Ожидает перевода"
+                }
+            },
+            "Genres": [
+                {"name": "Научная фантастика"},
+                {"name": "Драма"},
+                {"name": "Приключения"},
+                {"name": "Фэнтези"}
+            ]
+        }
+    ],
+    "Comic_name": [
+        {
+            "name": "Милый дом",
+            "comic_id": 1,
+            "is_default": true
+        },
+        {
+            "comic_id": 1,
+            "name": "Sweet Home (HWANG Youngchan)"
+        },
+        {
+            "comic_id": 1,
+            "name": "스위트홈"
+        },
+        {
+            "comic_id": 1,
+            "name": "홈 SWEET HOME"
+        },
+        {
+            "comic_id": 1,
+            "name": "홈스위트홈"
+        },
+        {
+            "comic_id": 1,
+            "name": "Дом, милый дом"
+        },
+        {
+            "comic_id": 1,
+            "name": "홈스위트홈"
+        },
+        {
+            "comic_id": 1,
+            "name": "홈 SWEET HOME"
+        },
+        {
+            "comic_id": 1,
+            "name": "Sweet Home"
+        },
+        {
+            "comic_id": 1,
+            "name": "ㅎㅗㅁ SWEET HOME"
+        },
+        {
+            "comic_id": 1,
+            "name": "Dulce Hogar"
+        },
+        {
+            "comic_id": 1,
+            "name": "ㅎㅗㅁ"
+        },
+        {
+            "comic_id": 1,
+            "name": "家 (金坎比)"
+        },
+        {
+            "comic_id": 1,
+            "name": "Seuwiteu Hom"
+        },
+        {
+            "comic_id": 1,
+            "name": "Sweet Home (KIM Carnby)"
+        },
+        {
+            "comic_id": 2,
+            "name": "Unknown Building"
+        },
+        {
+            "comic_id": 2,
+            "name": "Неизвестное здание",
+            "is_default": true
+        },
+        {
+            "comic_id": 2,
+            "name": "未知的建筑"
+        },
+        {
+            "comic_id": 2,
+            "name": "未知の建物"
+        },
+        {
+            "comic_id": 2,
+            "name": "불명 건물"
+        },
+        {
+            "comic_id": 2,
+            "name": "Building Tidak Dikenal"
+        },
+        {
+            "comic_id": 2,
+            "name": "未知的建築"
+        },
+        {
+            "comic_id": 2,
+            "name": "ไม่ทราบสิ่งปลูกสร้าง"
+        },
+        {
+            "comic_id": 2,
+            "name": "अज्ञात इमारत"
+        },
+        {
+            "comic_id": 2,
+            "name": "בניין לא ידוע"
+        },
+        {
+            "comic_id": 2,
+            "name": "Gebäude Unbekannt"
+        },
+        {
+            "comic_id": 3,
+            "name": "Virtual Crisis"
+        },
+        {
+            "comic_id": 3,
+            "name": "Виртуальный кризис",
+            "is_default": true
+        },
+        {
+            "comic_id": 3,
+            "name": "虚拟危机"
+        },
+        {
+            "comic_id": 3,
+            "name": "バーチャルクライシス"
+        },
+        {
+            "comic_id": 3,
+            "name": "Virtual Krisis"
+        },
+        {
+            "comic_id": 3,
+            "name": "Krisis Virtual"
+        },
+        {
+            "comic_id": 3,
+            "name": "Krizis Virtual"
+        },
+        {
+            "comic_id": 3,
+            "name": "קריזת וירטואלי"
+        },
+        {
+            "comic_id": 3,
+            "name": "Crisi Virtuale"
+        },
+        {
+            "comic_id": 4,
+            "name": "Monster Hunter"
+        },
+        {
+            "comic_id": 4,
+            "name": "Охотник на монстров",
+            "is_default": true
+        },
+        {
+            "comic_id": 4,
+            "name": "몬스터 헌터"
+        },
+        {
+            "comic_id": 4,
+            "name": "猎兽人"
+        },
+        {
+            "comic_id": 4,
+            "name": "モンスターハンター"
+        },
+        {
+            "comic_id": 4,
+            "name": "Cazador de Monstruos"
+        },
+        {
+            "comic_id": 4,
+            "name": "Monster Jäger"
+        },
+        {
+            "comic_id": 4,
+            "name": "Κυνηγός Τεράτων"
+        },
+        {
+            "comic_id": 4,
+            "name": "מסתורין מסתורין"
+        },
+        {
+            "comic_id": 4,
+            "name": "Cacciatore di Mostri"
+        },
+        {
+            "comic_id": 5,
+            "name": "War of Angels and Demons",
+            "is_default": true
+        },
+        {
+            "comic_id": 5,
+            "name": "Война ангелов и демонов"
+        },
+        {
+            "comic_id": 5,
+            "name": "천사와 악마의 전쟁"
+        },
+        {
+            "comic_id": 5,
+            "name": "天使与魔鬼之战"
+        },
+        {
+            "comic_id": 5,
+            "name": "戦いの天使と悪魔"
+        },
+        {
+            "comic_id": 5,
+            "name": "Guerra de Ángeles y Demonios"
+        },
+        {
+            "comic_id": 5,
+            "name": "Krieg der Engel und Dämonen"
+        },
+        {
+            "comic_id": 5,
+            "name": "Πόλεμος των Αγγέλων και Δαιμόνων"
+        },
+        {
+            "comic_id": 5,
+            "name": "מלחמת המלאכים והשדים"
+        },
+        {
+            "comic_id": 5,
+            "name": "Guerra tra Angeli e Demoni"
+        },
+        {
+            "comic_id": 6,
+            "name": "Tech Innovations"
+        },
+        {
+            "comic_id": 6,
+            "name": "Технологические инновации",
+            "is_default": true
+        },
+        {
+            "comic_id": 6,
+            "name": "기술 혁신"
+        },
+        {
+            "comic_id": 6,
+            "name": "技术创新"
+        },
+        {
+            "comic_id": 6,
+            "name": "テクノイノベーション"
+        },
+        {
+            "comic_id": 6,
+            "name": "Innovaciones Tecnológicas"
+        },
+        {
+            "comic_id": 6,
+            "name": "Technologische Innovationen"
+        },
+        {
+            "comic_id": 6,
+            "name": "Τεχνολογικές Καινοτομίες"
+        },
+        {
+            "comic_id": 6,
+            "name": "חדשנות טכנולוגית"
+        },
+        {
+            "comic_id": 6,
+            "name": "Innovazioni Tecnologiche"
+        }
+    ],
+    "Comic_reading_status": [
+        {
+            "Users": [
+                {"id": 1},
+                {"id": 2},
+                {"id": 3}
+            ],
+            "comic_id": 1,
+            "Reading_status": {
+                "name": "Читаю"
+            }
+        }
+    ]
+}

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('description');
             $table->decimal('release_year', 4, 0);
-            $table->tinyInteger('age_limit');
+            $table->enum('age_limit', ["18+", "16+", "12+", "6+", "0+"]);
             $table->string('poster_path');
             $table->foreignId('comic_type_id')->constrained()->cascadeOnUpdate();
             $table->foreignId('release_status_id')->constrained()->cascadeOnUpdate();

@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comic_names', function (Blueprint $table) {
-            $table->foreignId('user_id')->constrained()->cascadeOnUpdate();
             $table->foreignId('comic_id')->constrained()->cascadeOnUpdate();
-            $table->decimal('value', 2, 0);
-            $table->primary(['user_id', 'comic_id']);
+            $table->string('name', 75);
+            $table->boolean('is_default')->default(false);
+            $table->primary(['comic_id', 'name']);
         });
     }
 
