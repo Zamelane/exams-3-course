@@ -1354,5 +1354,62 @@
             "pay_amount": 399.99,
             "id_payment": "aGdmamFkZ3Zhc2RnZmdqZ2ZkaGRmZw"
         }
+    ],
+    "Creator_role": [
+        {"name": "Издатель"},
+        {"name": "Автор"},
+        {"name": "Художник"}
+    ],
+    "Creator": [
+        {
+            "name": "Webtoon",
+            "creator_role_id": 1
+        },
+        {
+            "name": "Naver",
+            "creator_role_id": 1
+        },
+        {
+            "name": "Carnby",
+            "creator_role_id": 2
+        }
+    ],
+    "Comic_creator": [
+        {
+            "comic_id": 1,
+            "creator_id": 1
+        },
+        {
+            "comic_id": 1,
+            "creator_id": 2
+        },
+        {
+            "comic_id": 1,
+            "creator_id": 3
+        },
+        {
+            "comic_id": 2,
+            "creator_id": 1
+        },
+        {
+            "comic_id": 3,
+            "creator_id": 1
+        },
+        {
+            "comic_id": 3,
+            "creator_id": 2
+        },
+        {
+            "comic_id": 4,
+            "creator_id": 2
+        },
+        {
+            "comic_id": 5,
+            "creator_id": 1
+        },
+        {
+            "comic_id": 5,
+            "creator_id": 2
+        }
     ]
 }

@@ -10,12 +10,15 @@ use App\Models\Chapter;
 use App\Models\Chapter_review;
 use App\Models\Chapter_review_like;
 use App\Models\Comic;
+use App\Models\Comic_creator;
 use App\Models\Comic_genre;
 use App\Models\Comic_name;
 use App\Models\Comic_rating;
 use App\Models\Comic_reading_status;
 use App\Models\Comic_review;
 use App\Models\Comic_type;
+use App\Models\Creator;
+use App\Models\Creator_role;
 use App\Models\Frame;
 use App\Models\Genre;
 use App\Models\Like_chapter;
@@ -55,6 +58,9 @@ class DatabaseSeeder extends Seeder
         "Comic_name"           => Comic_name::class,
         "Comic_reading_status" => Comic_reading_status::class,
         "Comic_review"         => Comic_review::class,
+        "Creator_role"         => Creator_role::class,
+        "Creator"              => Creator::class,
+        "Comic_creator"        => Comic_creator::class,
         "Like_chapter"         => Like_chapter::class,
         "Reading_status"       => Reading_status::class
     ];
