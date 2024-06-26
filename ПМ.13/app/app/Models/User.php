@@ -3,9 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Exceptions\ApiException;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -13,7 +16,7 @@ class User extends Authenticatable
     public $timestamps = false;
 
     /**
-     * The attributes that are mass assignable.
+     * Атрибуты, которые можно массово присваивать.
      *
      * @var array<int, string>
      */
@@ -24,7 +27,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Атрибуты, которые должны быть скрыты для сериализации.
      *
      * @var array<int, string>
      */
@@ -33,7 +36,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * Получите атрибуты, которые должны быть приведены к какому-либо виду.
      *
      * @return array<string, string>
      */
@@ -42,5 +45,51 @@ class User extends Authenticatable
         return [
             'password' => 'hashed'
         ];
+    }
+
+    /*===СВЯЗИ===*/
+    public function role() {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function bans() {
+        return $this->hasMany(Ban::class);
+    }
+
+    /*===ОБЩИЙ ФУНКЦИОНАЛ===*/
+    public static function checkAvailable(User $user) {
+        $isBanned = false;
+
+        // Получаем все баны пользователя
+        $allBans  = $user->bans();
+
+        foreach ($allBans as $ban)
+            if (date($ban->date_end) < now())
+                $isBanned = true;
+
+        return $isBanned;
+    }
+
+    public static function getUserByCredentials($credentials) {
+        return User::where($credentials)->first();
+    }
+
+    public static function getByToken(string $token) {
+        $auth = Auth::where('token', $token)->first();
+
+        if (!$auth)
+            throw new ApiException(401, 'Invalid token');
+
+        return $auth->user;
+    }
+
+    public static function newToken(User $user) {
+        $token = Str::random(25);
+        $auth  = new Auth([
+                'token' => Str::random(25),
+                'user_id' => $user->id
+            ]);
+        if ($auth->save())
+            return $token;
     }
 }
