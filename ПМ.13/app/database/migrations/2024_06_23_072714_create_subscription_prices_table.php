@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('subscription_prices', function (Blueprint $table) {
-            $table->bigIncrements('id')->primary();
+            $table->id();
             $table->decimal('price', 16, 2);
             $table->decimal('discount_percent', 2, 0);
-            $table->tinyInteger('days_count');
+            $table->integer('days_count');
             $table->foreignId('subscription_id')->constrained()->cascadeOnUpdate();
         });
     }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('creators', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('creator_role_id')->constrained()->cascadeOnUpdate();
+            $table->tinyInteger('creator_role_id')->foreignId('creator_role_id')->constrained()->cascadeOnUpdate();
         });
     }
 

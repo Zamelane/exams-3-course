@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bans', function (Blueprint $table) {
-            $table->bigIncrements('id')->primary();
+            $table->id();
             $table->date('date_start');
             $table->date('date_end');
             $table->string('reason_description');

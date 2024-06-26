@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comic_reviews', function (Blueprint $table) {
-            $table->bigIncrements('id')->primary();
+            $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate();
             $table->foreignId('comic_id')->constrained()->cascadeOnUpdate();
             $table->string('content');

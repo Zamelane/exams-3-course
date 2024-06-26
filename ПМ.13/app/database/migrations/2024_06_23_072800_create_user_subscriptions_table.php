@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_subscriptions', function (Blueprint $table) {
-            $table->bigIncrements('id')->primary();
+            $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate();
             $table->foreignId('acquiring_id')->constrained()->cascadeOnUpdate();
             $table->foreignId('subscription_price_id')->constrained()->cascadeOnUpdate();

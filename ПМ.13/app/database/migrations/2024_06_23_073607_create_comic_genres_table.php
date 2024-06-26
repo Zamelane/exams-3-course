@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('comic_genres', function (Blueprint $table) {
             $table->foreignId('comic_id')->constrained()->cascadeOnUpdate();
-            $table->foreignId('genre_id')->constrained()->cascadeOnUpdate();
+            $table->tinyInteger('genre_id')->foreignId('genre_id')->constrained()->cascadeOnUpdate();
             $table->primary(['comic_id', 'genre_id']);
         });
     }

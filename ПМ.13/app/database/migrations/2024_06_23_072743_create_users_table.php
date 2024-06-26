@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('nickname', 25);
             $table->string('email', 65);
             $table->string('password');
             $table->foreignId('avatar_id')->constrained()->cascadeOnUpdate();
-            $table->foreignId('role_id')->constrained()->cascadeOnUpdate();
+            $table->tinyInteger('role_id')->foreignId('role_id')->constrained()->cascadeOnUpdate();
         });
     }
 

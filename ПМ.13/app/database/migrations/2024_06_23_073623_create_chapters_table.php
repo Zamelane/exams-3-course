@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('chapters', function (Blueprint $table) {
-            $table->bigIncrements('id')->primary();
+            $table->id();
             $table->foreignId('comic_id')->constrained()->cascadeOnUpdate();
             $table->string('name', 45);
             $table->integer('chapter_number');
