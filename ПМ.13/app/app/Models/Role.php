@@ -20,4 +20,8 @@ class Role extends Model
      * @var array<int, string>
      */
     protected $hidden = [];
+
+    public static function getUserRoleId() {
+        return Role::where('code', '=', 'user')->firstOrCreate()->id;
+    }
 }

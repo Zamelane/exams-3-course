@@ -18,6 +18,9 @@ class AuthByToken
             throw new ApiException(401, 'Token not provided');
 
         $user = User::getByToken($token);
+
+        if (!$user)
+            throw new ApiException(401, 'Token not found');
         
          // Записываем пользователя в запрос для последующих обработок в контроллерах
          $request->setUserResolver(function () use ($user) {

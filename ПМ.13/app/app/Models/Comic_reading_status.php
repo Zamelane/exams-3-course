@@ -23,4 +23,16 @@ class Comic_reading_status extends Model
      * @var array<int, string>
      */
     protected $hidden = [];
+
+    public function comic() {
+        return $this->belongsTo(Comic::class);
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function reading_status() {
+        return $this->belongsTo(Reading_status::class);
+    }
 }

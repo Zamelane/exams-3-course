@@ -21,9 +21,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nickname',
         'email',
         'password',
+        'avatar_id',
+        'role_id'
     ];
 
     /**
@@ -65,9 +67,13 @@ class User extends Authenticatable
 
         foreach ($allBans as $ban)
             if (date($ban->date_end) < now())
+            {
                 $isBanned = true;
-
-        return $isBanned;
+                break;
+            }
+        
+        if ($isBanned)
+            throw new ApiException(401, 'You are banned');
     }
 
     public static function getUserByCredentials($credentials) {
@@ -86,7 +92,7 @@ class User extends Authenticatable
     public static function newToken(User $user) {
         $token = Str::random(25);
         $auth  = new Auth([
-                'token' => Str::random(25),
+                'token' => $token,
                 'user_id' => $user->id
             ]);
         if ($auth->save())

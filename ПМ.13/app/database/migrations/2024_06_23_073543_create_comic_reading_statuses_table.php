@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comic_reading_statuses', function (Blueprint $table) {
-            $table->bigInteger('user_id')->foreignId('user_id')->constrained()->cascadeOnUpdate();
-            $table->bigInteger('comic_id')->foreignId('comic_id')->constrained()->cascadeOnUpdate();
-            $table->tinyInteger('reading_status_id')->foreignId('reading_status_id')->constrained()->cascadeOnUpdate();
+            $table->foreignId('user_id')->constrained()->cascadeOnUpdate();
+            $table->foreignId('comic_id')->constrained()->cascadeOnUpdate();
+            $table->foreignId('reading_status_id')->constrained()->cascadeOnUpdate();
             $table->primary(['user_id', 'comic_id']);
         });
     }

@@ -7,7 +7,7 @@ class LoginRequest extends ApiRequest
     public function rules(): array
     {
         return [
-            'nickname' => 'required|string|min:2|max:32',
+            'nickname' => 'required|string|min:3|max:32',
             'password' => 'required|string|min:2|max:255'
         ];
     }

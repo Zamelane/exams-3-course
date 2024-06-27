@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('nickname', 25);
-            $table->string('email', 65);
+            $table->string('nickname', 25)->unique();
+            $table->string('email', 65)->unique();
             $table->string('password');
             $table->foreignId('avatar_id')->constrained()->cascadeOnUpdate();
             $table->tinyInteger('role_id')->foreignId('role_id')->constrained()->cascadeOnUpdate();

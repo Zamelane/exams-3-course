@@ -26,4 +26,16 @@ class Comic extends Model
      * @var array<int, string>
      */
     protected $hidden = [];
+
+    public function names() {
+        return $this->hasMany(Comic_name::class);
+    }
+
+    public function name() {
+        $names = $this->names;
+
+        foreach ($names as $name)
+            if ($name->is_default)
+                return $name->name;
+    }
 }

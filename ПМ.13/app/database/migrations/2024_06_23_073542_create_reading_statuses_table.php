@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reading_statuses', function (Blueprint $table) {
-            $table->tinyIncrements('id')->primary();
+            $table->id();
             $table->string('name', 25);
         });
     }
