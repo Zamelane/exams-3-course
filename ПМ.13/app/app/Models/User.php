@@ -58,21 +58,26 @@ class User extends Authenticatable
         return $this->hasMany(Ban::class);
     }
 
-    /*===ОБЩИЙ ФУНКЦИОНАЛ===*/
-    public static function checkAvailable(User $user) {
-        $isBanned = false;
+    public function avatar() {
+        return $this->belongsTo(Avatar::class);
+    }
 
+    /*===ОБЩИЙ ФУНКЦИОНАЛ===*/
+    public static function getBanId(User $user) {
         // Получаем все баны пользователя
-        $allBans  = $user->bans();
+        $allBans  = $user->bans;
 
         foreach ($allBans as $ban)
-            if (date($ban->date_end) < now())
+            if (date($ban->date_end) > date(now()))
             {
-                $isBanned = true;
+                return $ban->id;
                 break;
             }
-        
-        if ($isBanned)
+        return null;
+    }
+
+    public static function checkAvailable(User $user) {
+        if (User::getBanId($user))
             throw new ApiException(401, 'You are banned');
     }
 

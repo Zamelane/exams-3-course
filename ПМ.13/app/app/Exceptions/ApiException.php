@@ -6,7 +6,7 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 
 class ApiException extends HttpResponseException
 {
-    public function __construct(int $code, string $message, $errors = null)
+    public function __construct(int $code, string|array $message, $errors = null)
     {
         $response = [
             'code' => $code,

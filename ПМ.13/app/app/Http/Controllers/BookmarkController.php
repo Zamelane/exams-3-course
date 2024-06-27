@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Exceptions\ApiException;
+use App\Http\Requests\AddBookmarkType;
+use App\Http\Requests\AddBookmarkTypeRequest;
 use App\Http\Requests\SetBookmarkRequest;
 use App\Http\Resources\BookmarksUserResource;
 use App\Models\Comic;
@@ -48,9 +50,7 @@ class BookmarkController extends Controller
     }
 
     public function listTypes() {
-        $types = Reading_status::all()->map(function ($type) {
-            return $type->name;
-        });
+        $types = Reading_status::all();
 
         return response($types, 200);
     }
@@ -62,5 +62,23 @@ class BookmarkController extends Controller
             )->simplePaginate()),
             200
         );
+    }
+
+    public function add(AddBookmarkTypeRequest $r)
+    {
+        $type_name = request('name');
+        if ($type = Reading_status::where('name', '=', $type_name)->first())
+            throw new ApiException(401, "The \"{$type_name}\" type already exists");
+        
+        return response(Reading_status::create(request()->all()), 201);
+    }
+
+    public function remove(Request $r, $id) {
+        if (!$type_db = Reading_status::find($id))
+            throw new ApiException(404, "Type with index {$id} not found");
+
+        $type_db->delete();
+
+        return response(null, 204);
     }
 }
