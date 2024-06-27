@@ -24,4 +24,8 @@ class Chapter extends Model
      * @var array<int, string>
      */
     protected $hidden = [];
+
+    public function countLikes() {
+        return Like_chapter::where('chapter_id', '=', $this->id)->count();
+    }
 }

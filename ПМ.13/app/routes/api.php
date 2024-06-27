@@ -17,16 +17,18 @@ Route::controller(AuthController::class)
 // Управление комиксами и закладками
 Route::group([
    'controller' => ComicController::class,
-   'middleware' => 'auth',
    'prefix'     => 'comics'
 ], function ($comics) {
    $comics->group([
       'controller' => BookmarkController::class,
-      'prefix'     => '{comic_id}/bookmark'
+      'prefix'     => '{comic_id}/bookmark',
+      'middleware' => 'auth'
    ], function($bookmark) {
       $bookmark->post  ('', 'setBookmark'   );
       $bookmark->delete('', 'removeBookmark');
    });
+   $comics->get('{id}', 'show');
+   $comics->get('',     'list');
 });
 
 // Списки закладок

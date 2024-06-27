@@ -38,4 +38,20 @@ class Comic extends Model
             if ($name->is_default)
                 return $name->name;
     }
+
+    public function comic_type() {
+        return $this->belongsTo(Comic_type::class);
+    }
+
+    public function release_status() {
+        return $this->belongsTo(Release_status::class);
+    }
+
+    public function translate_status() {
+        return $this->belongsTo(Translate_status::class);
+    }
+
+    public function chapters() {
+        return $this->hasMany(Chapter::class);
+    }
 }
