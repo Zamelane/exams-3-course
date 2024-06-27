@@ -44,8 +44,8 @@ Route::group([
       'middleware' => 'check.role:=admin',
       'prefix'     => 'types'
    ], function($types) {
-      $types->post('add',            'add');
-      $types->post('remove/{id}', 'remove');
+      $types->post  ('add',            'add');
+      $types->delete('remove/{id}', 'remove');
    });
 });
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Exceptions\ApiException;
-use App\Http\Requests\AddBookmarkType;
 use App\Http\Requests\AddBookmarkTypeRequest;
 use App\Http\Requests\SetBookmarkRequest;
 use App\Http\Resources\BookmarksUserResource;
