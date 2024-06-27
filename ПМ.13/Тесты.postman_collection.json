@@ -1,0 +1,2315 @@
+{
+	"info": {
+		"_postman_id": "e77ec723-207b-4338-82e9-4bd7e120c5ff",
+		"name": "Тесты",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28995943"
+	},
+	"item": [
+		{
+			"name": "Тестирование функционала гостя",
+			"item": [
+				{
+					"name": "Авторизация",
+					"item": [
+						{
+							"name": "Авторизация не валидными данными",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Вернул правильный код (401)\", function() {",
+											"    pm.expect(pm.response.code).to.eql(401)",
+											"})",
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.test(\"Код ошибки передан в теле ответа\", function() {",
+											"    pm.expect(jsonData.code).to.not.undefined",
+											"})",
+											"pm.test(\"Сообщение об ошибке передано в теле ответа\", function() {",
+											"    pm.expect(jsonData.message).to.not.undefined",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nickname",
+											"value": "admin",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "fghdfsgfbhdfg",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{api_url}}/auth/login",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Авторизация пустыми данными",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Вернул правильный код (401)\", function() {",
+											"    pm.expect(pm.response.code).to.eql(401)",
+											"})",
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.test(\"Код ошибки передан в теле ответа\", function() {",
+											"    pm.expect(jsonData.code).to.not.undefined",
+											"})",
+											"pm.test(\"Сообщение об ошибке передано в теле ответа\", function() {",
+											"    pm.expect(jsonData.message).to.not.undefined",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nickname",
+											"value": "admin",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "fghdfsgfbhdfg",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{api_url}}/auth/login",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Авторизация валидными данным",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Вернул правильный код (200)\", function() {",
+											"    pm.expect(pm.response.code).to.eql(200)",
+											"})",
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.test(\"Поле token существует\", function() {",
+											"    pm.expect(jsonData.token).to.not.undefined",
+											"})",
+											"",
+											"pm.collectionVariables.set(\"admin_token\", jsonData.token);",
+											"pm.environment        .set(\"admin_token\", jsonData.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nickname",
+											"value": "admin",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "Admin!",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{api_url}}/auth/login",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Регистрация",
+					"item": [
+						{
+							"name": "Регистрация некорректными данными",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Вернул правильный код (422)\", function() {",
+											"    pm.expect(pm.response.code).to.eql(422)",
+											"})",
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.test(`В ответе содержится список ошибок`, function() {",
+											"    pm.expect(jsonData.errors).to.not.undefined;",
+											"})",
+											"pm.test(`В ответе содержится ошибка валидации почты`, function() {",
+											"    pm.expect(jsonData.errors.email).to.not.undefined;",
+											"})",
+											"pm.test(`В ответе содержится ошибка валидации никнейма`, function() {",
+											"    pm.expect(jsonData.errors.nickname).to.not.undefined;",
+											"})",
+											"pm.test(`В ответе содержится ошибка валидации пароля`, function() {",
+											"    pm.expect(jsonData.errors.password).to.not.undefined;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nickname",
+											"value": "1",
+											"type": "default"
+										},
+										{
+											"key": "email",
+											"value": "12345mail.ru",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "1",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{api_url}}/auth/signup",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Регистрация корректными данными",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Вернул правильный код (201)\", function() {",
+											"    pm.expect(pm.response.code).to.eql(201)",
+											"})",
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.test(\"Поле token существует\", function() {",
+											"    pm.expect(jsonData.token).to.not.undefined",
+											"})",
+											"",
+											"pm.collectionVariables.set(\"user_token\", jsonData.token);",
+											"pm.environment        .set(\"user_token\", jsonData.token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(",
+											"    'nickname',",
+											"    'nickname' + (new Date().getTime() / 1000)",
+											")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nickname",
+											"value": "{{nickname}}",
+											"type": "default"
+										},
+										{
+											"key": "email",
+											"value": "{{nickname}}@mail.ru",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "{{nickname}}!",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{api_url}}/auth/signup",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Просмотр типов закладок",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'id',",
+									"    'name'",
+									"];",
+									"",
+									"for(const field of fields)",
+									"    for (const elem of jsonData)",
+									"        pm.test(`В каждом объекте присутствует поле '${field}'`, function() {",
+									"                pm.expect(elem[field]).to.not.undefined;",
+									"            })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/bookmarks/types",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks",
+								"types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Тестирование функционала пользователя",
+			"item": [
+				{
+					"name": "Просмотр типов закладок",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'id',",
+									"    'name'",
+									"];",
+									"",
+									"for(const field of fields)",
+									"    for (const elem of jsonData)",
+									"        pm.test(`В каждом объекте присутствует поле '${field}'`, function() {",
+									"                pm.expect(elem[field]).to.not.undefined;",
+									"            })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/bookmarks/types",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр себя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'id',",
+									"    'nickname',",
+									"    'email',",
+									"    'role',",
+									"    'avatar'",
+									"];",
+									"",
+									"for(const elem of fields)",
+									"    pm.test(`У пользователя есть поле '${elem}'`, function() {",
+									"        pm.expect(jsonData[elem]).to.not.undefined;",
+									"    })",
+									"",
+									"pm.test(`У пользователя указана роль 'user'`, function() {",
+									"        pm.expect(jsonData.role).eq('user')",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/users/me",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр комиксов",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'id',",
+									"    'name',",
+									"    'description',",
+									"    'release_year',",
+									"    'age_limit',",
+									"    'poster',",
+									"    'comic_type',",
+									"    'translate_status',",
+									"    'release_status',",
+									"    'chapters'",
+									"];",
+									"",
+									"for(const field of fields)",
+									"    pm.test(`У каждого комикса есть поле '${field}'`, function() {",
+									"        for (const elem of jsonData)",
+									"            pm.expect(elem[field]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/comics",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics"
+							],
+							"query": [
+								{
+									"key": "genres",
+									"value": "Драма",
+									"disabled": true
+								},
+								{
+									"key": "comic_type",
+									"value": "Манхва",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр конкретного комикса",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'id',",
+									"    'name',",
+									"    'description',",
+									"    'release_year',",
+									"    'age_limit',",
+									"    'poster',",
+									"    'comic_type',",
+									"    'translate_status',",
+									"    'release_status',",
+									"    'chapters'",
+									"];",
+									"",
+									"for (const field of fields)",
+									"    pm.test(`У комикса есть поле '${field}'`, function() {",
+									"        pm.expect(jsonData[field]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/comics/1",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание закладки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (201)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(201)",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "Читаю",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/comics/1/bookmark",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "!!!Просмотр своих закладок",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'comic_name',",
+									"    'reading_status'",
+									"];",
+									"",
+									"for (const field of fields)",
+									"    pm.test(`У каждой закладки есть поле '${field}'`, function() {",
+									"        for (const elem of jsonData)",
+									"            pm.expect(elem[field]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/bookmarks",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание существующей закладки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'code',",
+									"    'message'",
+									"];",
+									"",
+									"for (const field of fields)",
+									"    pm.test(`В ответе есть поле '${field}'`, function() {",
+									"        pm.expect(jsonData[field]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "Читаю",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/comics/1/bookmark",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление закладки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (204)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(204)",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/comics/1/bookmark",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление удалённой закладки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (404)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(404)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'code',",
+									"    'message'",
+									"];",
+									"",
+									"for (const field of fields)",
+									"    pm.test(`В ответе есть поле '${field}'`, function() {",
+									"        pm.expect(jsonData[field]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/comics/1/bookmark",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр типов закладок",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'id',",
+									"    'name'",
+									"];",
+									"",
+									"for(const field of fields)",
+									"    for (const elem of jsonData)",
+									"        pm.test(`В каждом объекте присутствует поле '${field}'`, function() {",
+									"                pm.expect(elem[field]).to.not.undefined;",
+									"            })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/bookmarks/types",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Завершение сессии",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (204)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(204)",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/auth/logout",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Завершение завершённой сессии",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (401)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(401)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'code',",
+									"    'message'",
+									"];",
+									"",
+									"for(const field of fields)",
+									"    pm.test(`В каждом объекте присутствует поле '${field}'`, function() {",
+									"                pm.expect(jsonData[field]).to.not.undefined;",
+									"        })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/auth/logout",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Тестирование функционала администратора",
+			"item": [
+				{
+					"name": "Просмотр всех пользователей",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'id',",
+									"    'nickname',",
+									"    'email',",
+									"    'role',",
+									"    'avatar'",
+									"];",
+									"",
+									"for(const field of fields)",
+									"    pm.test(`У каждого пользователя есть поле '${field}'`, function() {",
+									"        for(const elem of jsonData)",
+									"            pm.expect(elem[field]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/users",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр конкретного пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'id',",
+									"    'nickname',",
+									"    'email',",
+									"    'role',",
+									"    'avatar'",
+									"];",
+									"",
+									"for(const elem of fields)",
+									"    pm.test(`У пользователя есть поле '${elem}'`, function() {",
+									"        pm.expect(jsonData[elem]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/users/1",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр типов закладок",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'id',",
+									"    'name'",
+									"];",
+									"",
+									"for(const field of fields)",
+									"    for (const elem of jsonData)",
+									"        pm.test(`В каждом объекте присутствует поле '${field}'`, function() {",
+									"                pm.expect(elem[field]).to.not.undefined;",
+									"            })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/bookmarks/types",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр себя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'id',",
+									"    'nickname',",
+									"    'email',",
+									"    'role',",
+									"    'avatar'",
+									"];",
+									"",
+									"for(const elem of fields)",
+									"    pm.test(`У пользователя есть поле '${elem}'`, function() {",
+									"        pm.expect(jsonData[elem]).to.not.undefined;",
+									"    })",
+									"",
+									"pm.test(`У пользователя указана роль 'admin'`, function() {",
+									"        pm.expect(jsonData.role).eq('admin')",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/users/me",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр комиксов",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'id',",
+									"    'name',",
+									"    'description',",
+									"    'release_year',",
+									"    'age_limit',",
+									"    'poster',",
+									"    'comic_type',",
+									"    'translate_status',",
+									"    'release_status',",
+									"    'chapters'",
+									"];",
+									"",
+									"for(const field of fields)",
+									"    pm.test(`У каждого комикса есть поле '${field}'`, function() {",
+									"        for (const elem of jsonData)",
+									"            pm.expect(elem[field]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/comics",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics"
+							],
+							"query": [
+								{
+									"key": "genres",
+									"value": "Драма",
+									"disabled": true
+								},
+								{
+									"key": "comic_type",
+									"value": "Манхва",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр конкретного комикса",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'id',",
+									"    'name',",
+									"    'description',",
+									"    'release_year',",
+									"    'age_limit',",
+									"    'poster',",
+									"    'comic_type',",
+									"    'translate_status',",
+									"    'release_status',",
+									"    'chapters'",
+									"];",
+									"",
+									"for (const field of fields)",
+									"    pm.test(`У комикса есть поле '${field}'`, function() {",
+									"        pm.expect(jsonData[field]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/comics/1",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание закладки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (201)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(201)",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "Читаю",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/comics/1/bookmark",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр своих закладок",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'comic_name',",
+									"    'reading_status'",
+									"];",
+									"",
+									"for (const field of fields)",
+									"    pm.test(`У каждой закладки есть поле '${field}'`, function() {",
+									"        for (const elem of jsonData)",
+									"            pm.expect(elem[field]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/bookmarks",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание существующей закладки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'code',",
+									"    'message'",
+									"];",
+									"",
+									"for (const field of fields)",
+									"    pm.test(`В ответе есть поле '${field}'`, function() {",
+									"        pm.expect(jsonData[field]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "Читаю",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/comics/1/bookmark",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление закладки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (204)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(204)",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/comics/1/bookmark",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление удалённой закладки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (404)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(404)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'code',",
+									"    'message'",
+									"];",
+									"",
+									"for (const field of fields)",
+									"    pm.test(`В ответе есть поле '${field}'`, function() {",
+									"        pm.expect(jsonData[field]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/comics/1/bookmark",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр типов закладок",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'id',",
+									"    'name'",
+									"];",
+									"",
+									"for(const field of fields)",
+									"    for (const elem of jsonData)",
+									"        pm.test(`В каждом объекте присутствует поле '${field}'`, function() {",
+									"                pm.expect(elem[field]).to.not.undefined;",
+									"            })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/bookmarks/types",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Бан пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (200)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(200)",
+									"})",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.test(`В ответе есть id бана`, function() {",
+									"    pm.expect(jsonData['ban_id']).to.not.undefined;",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "date_end",
+									"value": "2024-06-29",
+									"type": "default"
+								},
+								{
+									"key": "reason_description",
+									"value": "Тест бана",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/users/2/ban",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"users",
+								"2",
+								"ban"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Бан забаненого пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (401)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(401)",
+									"})",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'code',",
+									"    'message'",
+									"];",
+									"var fieldsIn = [",
+									"    'message',",
+									"    'active_ban_id'",
+									"];",
+									"",
+									"for (const field of fields)",
+									"    pm.test(`В ответе есть поле '${field}'`, function() {",
+									"        pm.expect(jsonData[field]).to.not.undefined;",
+									"    })",
+									"",
+									"for (const field of fieldsIn)",
+									"    pm.test(`В ответе есть поле '${field}'`, function() {",
+									"        pm.expect(jsonData['message'][field]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "date_end",
+									"value": "2024-06-29",
+									"type": "default"
+								},
+								{
+									"key": "reason_description",
+									"value": "Тест бана",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/users/2/ban",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"users",
+								"2",
+								"ban"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление бана пользователя Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (204)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(204)",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/users/2/unban",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"users",
+								"2",
+								"unban"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление бана разбаненого пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (401)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(401)",
+									"})",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'code',",
+									"    'message'",
+									"];",
+									"var fieldsIn = [",
+									"    'message',",
+									"    'active_ban_id'",
+									"];",
+									"",
+									"for (const field of fields)",
+									"    pm.test(`В ответе есть поле '${field}'`, function() {",
+									"        pm.expect(jsonData[field]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/users/2/unban",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"users",
+								"2",
+								"unban"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание типа закладки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (201)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(201)",
+									"})",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'name',",
+									"    'id'",
+									"];",
+									"for (const field of fields)",
+									"    pm.test(`В ответе есть поле '${field}'`, function() {",
+									"        pm.expect(jsonData[field]).to.not.undefined;",
+									"    })",
+									"pm.collectionVariables.set(\"id_type\", jsonData.id);",
+									"pm.environment        .set(\"id_type\", jsonData.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Прочитано",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/bookmarks/types/add",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks",
+								"types",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание существующего типа закладки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (401)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(401)",
+									"})",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'code',",
+									"    'message'",
+									"];",
+									"for (const field of fields)",
+									"    pm.test(`В ответе есть поле '${field}'`, function() {",
+									"        pm.expect(jsonData[field]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Прочитано",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/bookmarks/types/add",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks",
+								"types",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление типа закладки Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (204)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(204)",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/bookmarks/types/remove/{{id_type}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks",
+								"types",
+								"remove",
+								"{{id_type}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление удалённого типа закладки",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (404)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(404)",
+									"})",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'code',",
+									"    'message'",
+									"];",
+									"for (const field of fields)",
+									"    pm.test(`В ответе есть поле '${field}'`, function() {",
+									"        pm.expect(jsonData[field]).to.not.undefined;",
+									"    })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/bookmarks/types/remove/{{id_type}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks",
+								"types",
+								"remove",
+								"{{id_type}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Завершение сессии",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (204)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(204)",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/auth/logout",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Завершение завершённой сессии",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Вернул правильный код (401)\", function() {",
+									"    pm.expect(pm.response.code).to.eql(401)",
+									"})",
+									"var jsonData = JSON.parse(responseBody);",
+									"var fields = [",
+									"    'code',",
+									"    'message'",
+									"];",
+									"",
+									"for(const field of fields)",
+									"    pm.test(`В каждом объекте присутствует поле '${field}'`, function() {",
+									"                pm.expect(jsonData[field]).to.not.undefined;",
+									"        })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/auth/logout",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "admin_token",
+			"value": ""
+		},
+		{
+			"key": "sms_token",
+			"value": ""
+		},
+		{
+			"key": "code",
+			"value": ""
+		},
+		{
+			"key": "nickname",
+			"value": ""
+		},
+		{
+			"key": "user_token",
+			"value": ""
+		},
+		{
+			"key": "id_type",
+			"value": ""
+		}
+	]
+}

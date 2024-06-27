@@ -1,0 +1,770 @@
+{
+	"info": {
+		"_postman_id": "c56497be-0915-420e-b805-9611079abc04",
+		"name": "Запросы",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28995943"
+	},
+	"item": [
+		{
+			"name": "Гость",
+			"item": [
+				{
+					"name": "Авторизация",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nickname",
+									"value": "admin",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "Admin!",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/auth/login",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Регистрация",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nickname",
+									"value": "12345",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "12345@mail.ru",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/auth/signup",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр типов закладок",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/bookmarks/types",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks",
+								"types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Пользователь",
+			"item": [
+				{
+					"name": "Просмотр себя",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "sfFy8fe1bvdJGJ7KRDXacQSrL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/users/me",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр комиксов",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/comics",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics"
+							],
+							"query": [
+								{
+									"key": "genres",
+									"value": "Драма",
+									"disabled": true
+								},
+								{
+									"key": "comic_type",
+									"value": "Манхва",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр конкретного комикса",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "dV4BIt5ZCFModfWn92Z7OCST3",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/comics/1",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр своих закладок",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "dV4BIt5ZCFModfWn92Z7OCST3",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/bookmarks",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление закладки",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ugQTRqKts3Dhmn4pgCFAQwCv9",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/comics/1/bookmark",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание закладки",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ugQTRqKts3Dhmn4pgCFAQwCv9",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "Читаю",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/comics/1/bookmark",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр типов закладок",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/bookmarks/types",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Завершение сессии",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "14njkGGcchiLXqxOJmW41M2ps",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/auth/logout",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Администратор",
+			"item": [
+				{
+					"name": "Просмотр конкретного пользователя",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "sfFy8fe1bvdJGJ7KRDXacQSrL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/users/1",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр всех пользователей",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "sfFy8fe1bvdJGJ7KRDXacQSrL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/users",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление бана пользователя",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "DwGNqluw2OkSIwNL5viEG2IRx",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/users/2/unban",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"users",
+								"2",
+								"unban"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Бан пользователя",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "DwGNqluw2OkSIwNL5viEG2IRx",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "date_end",
+									"value": "2024-06-29",
+									"type": "default"
+								},
+								{
+									"key": "reason_description",
+									"value": "Тест бана",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/users/2/ban",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"users",
+								"2",
+								"ban"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание типа закладки",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "sfFy8fe1bvdJGJ7KRDXacQSrL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Прочитано",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/bookmarks/types/add",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks",
+								"types",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление типа закладки",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "sfFy8fe1bvdJGJ7KRDXacQSrL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/bookmarks/types/remove/5",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks",
+								"types",
+								"remove",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Завершение сессии",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "14njkGGcchiLXqxOJmW41M2ps",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/auth/logout",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр себя",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "sfFy8fe1bvdJGJ7KRDXacQSrL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/users/me",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр комиксов",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/comics",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics"
+							],
+							"query": [
+								{
+									"key": "genres",
+									"value": "Драма",
+									"disabled": true
+								},
+								{
+									"key": "comic_type",
+									"value": "Манхва",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр конкретного комикса",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "dV4BIt5ZCFModfWn92Z7OCST3",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/comics/1",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр своих закладок",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "dV4BIt5ZCFModfWn92Z7OCST3",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/bookmarks",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр типов закладок",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/bookmarks/types",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"bookmarks",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление закладки",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ugQTRqKts3Dhmn4pgCFAQwCv9",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/comics/1/bookmark",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание закладки",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ugQTRqKts3Dhmn4pgCFAQwCv9",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "Читаю",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/comics/1/bookmark",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"comics",
+								"1",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

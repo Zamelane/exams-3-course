@@ -30,7 +30,7 @@ class BookmarkController extends Controller
         ];
 
         if (Comic_reading_status::where($data)->first())
-            return response('The status has already been set', 200);
+            throw new ApiException(200, 'The status has already been set');
         
         Comic_reading_status::create($data);
 
@@ -41,7 +41,7 @@ class BookmarkController extends Controller
         $data = $this->checkComicAndGenerateData($r, $comic_id);
         
         if (!$status = Comic_reading_status::where($data)->first())
-            return response('The status has already been removed', 404);
+            throw new ApiException(404, 'The status has already been removed');
 
         $status->delete();
         
